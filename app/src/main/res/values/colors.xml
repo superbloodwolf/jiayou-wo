@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 车机深色主题色板：护眼、低亮度、暖色调 -->
+    <color name="primary">#FFB020</color>       <!-- 琥珀橙主色 -->
+    <color name="primary_dark">#CC8800</color>  <!-- 深琥珀 -->
+    <color name="primary_light">#FFD180</color> <!-- 浅琥珀 -->
+    <color name="accent">#FFB020</color>        <!-- 强调色（同主色） -->
+    <color name="white">#FFF0F0F0</color>       <!-- 近白（主文本） -->
+    <color name="black">#FF0D0D0D</color>       <!-- 极深灰黑（背景） -->
+    <color name="surface">#FF1A1A1A</color>     <!-- 次级背景 -->
+    <color name="on_surface">#FFF0F0F0</color>  <!-- 表面上的文本 -->
+    <color name="grey">#FF6E6E6E</color>        <!-- 弱提示灰 -->
+    <color name="success_green">#4CAF50</color>
+    <color name="warning_orange">#FFC107</color>
+</resources>

@@ -1,0 +1,118 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+// ── 读取签名密钥配置（密码不写入版本控制）──
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    namespace 'com.fueltracker'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.fueltracker"
+        minSdk 28          // Android 9.0 车机兼容
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        // 车机屏幕适配
+        resConfigs "zh-rCN", "en"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../keystore.jks")
+            storePassword keystoreProperties.getProperty('storePassword', '')
+            keyAlias keystoreProperties.getProperty('keyAlias', 'fueltracker')
+            keyPassword keystoreProperties.getProperty('keyPassword', '')
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        compose true
+        buildConfig true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.10'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    // 车机适配：支持 arm64（真车）和 x86_64（模拟器）
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'arm64-v8a', 'x86_64'
+            universalApk false
+        }
+    }
+}
+
+dependencies {
+    // ── Android 基础 ──
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation 'com.google.android.material:material:1.11.0'
+
+    // ── Jetpack Compose ──
+    implementation platform('androidx.compose:compose-bom:2024.04.01')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.activity:activity-compose:1.8.2'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+
+    // ── ViewModel + Compose ──
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0'
+
+    // ── Room 数据库 ──
+    def room_version = '2.6.1'
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-paging:$room_version"
+
+    // ── 图表（油耗趋势）──
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // ── AAOS Car API（车机里程读取）──
+    // 使用反射调用，不需要编译依赖
+    // compileOnly 'android.car:car-stubs:1.0'
+
+    // ── 网络（油价接口）──
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // ── 日期时间 ──
+    implementation 'org.threeten:threetenbp:1.7.0'
+
+    // ── 测试（基础版暂不需要）──
+    // testImplementation 'junit:junit:4.13.2'
+    // androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+}

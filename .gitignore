@@ -1,0 +1,18 @@
+# ── Gradle ──
+.gradle/
+build/
+local.properties
+
+# ── Android Studio ──
+.idea/
+*.iml
+
+# ── 密钥与签名（敏感文件，勿提交）──
+keystore.jks
+keystore.properties
+*.keystore
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+keystore

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">要加油喔</string>
+    <string name="title_main">要加油喔</string>
+    <string name="title_add">新建加油记录</string>
+    <string name="hint_liters">0.00</string>
+    <string name="hint_price">0.00</string>
+    <string name="hint_cost">0.00</string>
+    <string name="hint_odometer">当前里程</string>
+    <string name="btn_save">保存记录</string>
+    <string name="btn_cancel">取消</string>
+    <string name="label_station_type">加油站类型</string>
+    <string name="label_fuel_grade">油品</string>
+    <string name="label_fuel_price">今日油价（元/升）</string>
+    <string name="label_liters">加油量（升）</string>
+    <string name="label_total_cost">实付金额（元）</string>
+    <string name="label_odometer">本次里程表（km）</string>
+    <string name="label_notes">备注（可选）</string>
+    <string name="toast_saved">✅ 记录已保存</string>
+    <string name="toast_input_invalid">请填写完整信息</string>
+    <string name="empty_list">暂无加油记录，点击 ＋ 添加</string>
+    <string name="stats_month">本月统计</string>
+    <string name="stats_count">加油次数</string>
+    <string name="stats_cost">总花费</string>
+    <string name="stats_avg_fuel">平均油耗</string>
+</resources>

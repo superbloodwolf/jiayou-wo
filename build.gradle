@@ -1,0 +1,8 @@
+// 项目级 build.gradle
+// FuelTracker - 车机加油记录 App
+// 支持 AAOS (Android Automotive OS)
+
+plugins {
+    id 'com.android.application' version '8.3.1' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.22' apply false
+}

@@ -1,0 +1,38 @@
+# 项目文件清单（完整）
+# FuelTracker - 车机加油记录 App
+# 生成时间：2026-06-03
+#
+# 使用方法：
+# 1. 用 Android Studio 打开 FuelTracker 文件夹
+# 2. 等待 Gradle 同步完成
+# 3. 连接车机（或 AAOS 模拟器）
+# 4. 点击 Run ▶ 安装到车机
+#
+# 目录结构：
+# FuelTracker/
+# ├── build.gradle              ← 项目级配置
+# ├── settings.gradle          ← 项目声明
+# ├── gradle/wrapper/         ← Gradle 工具（需补充）
+# └── app/
+#     ├── build.gradle         ← App 级配置
+#     ├── proguard-rules.pro  ← 混淆规则（需补充）
+#     └── src/main/
+#         ├── AndroidManifest.xml
+#         ├── java/com/fueltracker/
+#         │   ├── MainActivity.kt
+#         │   ├── FuelTrackerApp.kt
+#         │   ├── ui/
+#         │   │   ├── MainScreen.kt        ← 主界面（列表+统计）
+#         │   │   └── AddRecordScreen.kt   ← 新增加油记录
+#         │   ├── data/
+#         │   │   ├── FuelRecord.kt        ← 数据库实体
+#         │   │   ├── FuelRecordDao.kt     ← 数据库操作
+#         │   │   ├── AppDatabase.kt       ← Room 数据库
+#         │   │   └── FuelRepository.kt    ← 数据仓库层
+#         │   └── util/
+#         │       └── CarUtils.kt          ← 车辆 API + 油价工具
+#         └── res/
+#             └── values/
+#                 ├── strings.xml
+#                 ├── colors.xml
+#                 └── themes.xml

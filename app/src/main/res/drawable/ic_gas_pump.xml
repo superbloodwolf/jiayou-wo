@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 背景圆 -->
+    <path
+        android:fillColor="#1A2E1A"
+        android:pathData="M54,54m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0" />
+    <!-- 加油机主体 -->
+    <path
+        android:fillColor="#7EC850"
+        android:pathData="M32,28h28v52h-28z" />
+    <!-- 显示屏 -->
+    <path
+        android:fillColor="#0D0D0D"
+        android:pathData="M38,36h16v10h-16z" />
+    <!-- 显示屏文字线 -->
+    <path
+        android:fillColor="#7EC850"
+        android:pathData="M40,40h12v2h-12z" />
+    <!-- 加油枪软管 -->
+    <path
+        android:fillColor="#5A9E38"
+        android:pathData="M60,44c8,0 12,6 12,14v14h-6v-14c0,-4 -2,-8 -6,-8z" />
+    <!-- 加油枪头 -->
+    <path
+        android:fillColor="#7EC850"
+        android:pathData="M64,72h8v8h-8z" />
+    <!-- 底座 -->
+    <path
+        android:fillColor="#5A9E38"
+        android:pathData="M28,76h36v6h-36z" />
+</vector>
